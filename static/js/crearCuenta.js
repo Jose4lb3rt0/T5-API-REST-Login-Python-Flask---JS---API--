@@ -10,6 +10,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const contraseña = document.getElementById('contraseña').value;
         const contraseñaRepetida = document.getElementById('contraseña-repetida').value;
     
+        // Verificar si hay campos vacíos
+        if (!nombre || !correo || !contraseña || !contraseñaRepetida) {
+            alert('Por favor completa todos los campos.');
+            return; // Detener el proceso de envío del formulario
+        }
+
         if (contraseña !== contraseñaRepetida) {
             alert('Las contraseñas no coinciden. Por favor, inténtalo de nuevo.');
         } else {
@@ -31,16 +37,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 })
             })
             .then(response => {
-                if (!response.ok) {
-                    throw new Error('Error al registrar el usuario');
+                if (response.ok) {
+                    // Redirigir al usuario a la página home.html
+                    window.location.href = '/home';
                 }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Usuario registrado:', data);
-            })
-            .catch(error => {
-                console.error('Error:', error);
             });
         }
     });
