@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Step Login Form using HTML CSS JS </title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+            <form action="#">
+
+                <div class="page-box">
+                    <div class="login-title">
+                        <h2 class="Title-text">Inicia sesión</h2>
+                        <p class="Subtitle-text">Por favor inicia sesión para usar la plataforma</p>
+                    </div>
+
+                    <!--<form id="iniciarsesion-form" action="/iniciar_sesion" method="POST">-->
+                        <div class="page email-page">
+                            <div class="input-box">
+                                <input type="text" class="correo-ingresar" name="correo-ingresar" autofocus>
+                                <label>Ingresa tu correo electrónico</label>
+                            </div>
+                            <div class="forgot">
+                                <a href="#">¿Olvidaste tu correo?</a>
+                            </div>
+                            <div class="guest-mode">
+                                <p>¿No es tu computadora? Utilice el modo de invitado para iniciar sesión de forma privada.</p>
+                                <a href="https://support.google.com/chrome/answer/6130773?hl=es">Más información</a>
+                            </div>
+                            <div class="btn-box">
+                                <a href="#" class="btn-crear-cuenta">Crear una cuenta</a>
+                                <button class="btn-next">Siguiente</button>
+                            </div>
+                        </div>
+                        <div class="page password-page">
+                            <div class="input-box">
+                                <input type="password" class="contraseña-ingresar">
+                                <label>Ingresa tu contraseña</label>
+                            </div>
+                            <div class="forgot show">
+                                <a class="btn-olvide-contraseña">¿Olvidaste tu contraseña?</a>
+                                <label><input type="checkbox" class="checkbox-contraseña"> Mostrar contraseña</label>
+                            </div>
+                            <div class="btn-box">
+                                <button class="btn-back">Atrás</button>
+                                <button type="submit" class="btn-iniciar-sesion">Iniciar sesión</button>
+                            </div>
+                        </div>
+                    <!--</form>-->
+
+
+                    <div class="page recover-password-page">
+                        <div class="input-box">
+                            <input type="type" class="correo-recuperar-contraseña">
+                            <label>Ingresa tu correo electrónico</label>
+                        </div>
+                        <div class="btn-box">
+                            <button class="btn-back-recuperar-contraseña">Atrás</button>
+                            <button type="submit" class="btn-recuperar-contraseña">Recuperar</button>
+                        </div>
+                    </div>
+
+                    
+                    <form id="registration-form" action="/registrar" method="POST">
+                        <div class="page registration-page">
+                            <div class="input-box">
+                                <input type="text" id="nombre" class="nombre-registrar" autofocus>
+                                <label>Ingresa tu nombre</label>
+                            </div>
+                            <div class="input-box">
+                                <input type="email" id="correo" class="email-registrar">
+                                <label>Ingresa tu correo electrónico</label>
+                            </div>
+                            <div class="input-box">
+                                <input type="password" id="contraseña" class="contraseña-registrar">
+                                <label>Ingresa tu contraseña</label>
+                            </div>
+                            <div class="input-box">
+                                <input type="password" id="contraseña-repetida" class="contraseña-repetir-registrar">
+                                <label>Repite tu contraseña</label>
+                            </div>
+                            <div class="btn-box">
+                                <button class="btn-back-registrar">Atrás</button>
+                                <button type="submit" id="btn-registrar" class="btn-registrar">Registrarse</button>
+                            </div><div id="error-message"></div>
+                        </div>
+                    </form>
+
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="{{url_for('static', filename='js/script.js')}}"></script>
+    <script src="{{url_for('static', filename='js/crearCuenta.js')}}"></script>
+</body>
+</html>
