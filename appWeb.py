@@ -6,9 +6,12 @@ cnx = mysql.connector.connect(**config)
 cursor = cnx.cursor(dictionary=True)
 app = Flask(__name__)
 
+#################### RUTAS ####################
+
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 @app.route('/iniciar', methods=['POST'])
 def iniciar():
@@ -20,7 +23,8 @@ def iniciar():
     if cuenta:
         return cuenta
     else:
-        return 'Credenciales inválidas', 401 
+        return jsonify({'respuesta': 'Los datos que has ingresado no son validos'}), 401
+
 
 @app.route('/registrar', methods=['POST'])
 def registrar():
@@ -37,7 +41,25 @@ def registrar():
         if cuenta:
             return cuenta
     except Exception as e:
-        return 'Algo ha fallado', 401 
+        return jsonify({'respuesta': 'Algo ha fallado'}), 401
+
+
+@app.route('/recuperar', methods=['POST'])
+def recuperar():
+    correo = request.form['correo-recuperarcontraseña']
+    cursor.callproc('sp_Usuario_RecuperarPassword', (correo,))
+    for result in cursor.stored_results():
+        contraseña = result.fetchone()
+        if contraseña:
+            return jsonify({'respuesta': f'La contraseña del correo {correo} es: {contraseña}'})
+        else:
+            return jsonify({'respuesta': "No se encontró ninguna cuenta asociada a este correo electrónico"})
+
+
+@app.route('/actualizar', methods=['POST'])
+def actualizar():
+    return
+
 
 if __name__== '__main__':
     app.run(debug=True)
