@@ -47,8 +47,6 @@ function activarCamposRequeridos() {
         setTimeout(() => InputNombreRegistrar.focus(), 500);
         Title.innerHTML='Registrate';
         Subtitle.innerHTML='¿No tienes una cuenta?';
-        //desactivarCamposRequeridos();
-        //activarCamposRequeridos();
     };
         //Retroceder
         btnBackRegistrar.onclick = (e) => {
@@ -57,8 +55,6 @@ function activarCamposRequeridos() {
             Title.innerHTML = 'Inicia sesión';
             Subtitle.innerHTML = 'Por favor inicia sesión para usar la plataforma';
             InputEmail.focus()
-            //desactivarCamposRequeridos();
-            //activarCamposRequeridos();
         };
 
     // Modulo Iniciar sesión - contraseña
@@ -68,8 +64,6 @@ function activarCamposRequeridos() {
         setTimeout(() => InputPassword.focus(), 500);
         Title.innerHTML = 'Bienvenido';
         Subtitle.innerHTML = InputEmail.value;
-        //desactivarCamposRequeridos();
-        //activarCamposRequeridos();
     };
     //Mostrar contraseña
     checkboxPass.onclick = () => {
@@ -86,8 +80,6 @@ function activarCamposRequeridos() {
             Title.innerHTML = 'Inicia sesión';
             Subtitle.innerHTML = 'Por favor inicia sesión para usar la plataforma';
             InputEmail.focus();
-            //desactivarCamposRequeridos();
-            //activarCamposRequeridos();
         };
     
     //Modulo Recuperar contraseña
@@ -106,5 +98,3 @@ function activarCamposRequeridos() {
             Subtitle.innerHTML = 'Por favor inicia sesión para usar la plataforma';
             InputEmail.focus()
         };
-    
-

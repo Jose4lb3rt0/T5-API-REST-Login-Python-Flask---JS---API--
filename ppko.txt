@@ -24,12 +24,24 @@ def registrar_usuario():
         try:
             cursor.callproc('sp_Usuario_Guardar', (nombre, correo, contraseña))
             cnx.commit()
-            # Para que añada /home al url 
             return redirect(url_for('home'))
         except Exception as e:
             return jsonify({'error': str(e)}), 500
 
-
+@app.route('/iniciar_sesion', methods=['POST'])
+def iniciar_usuario():
+    if request.method == 'POST':
+        try:
+            data = request.json
+            correo = data['correo']
+            contraseña = data['contraseña']
+            cursor.callproc('sp_Usuario_Login', (correo, contraseña))
+            cnx.commit()
+            print('Datos recibidos:', correo, contraseña)
+            return redirect(url_for('home'))
+        except Exception as e:
+            print('Error en el servidor:', e)
+            return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
     app.run(debug=True)
