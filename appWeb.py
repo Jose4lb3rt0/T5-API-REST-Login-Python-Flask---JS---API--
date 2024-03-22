@@ -21,9 +21,11 @@ def iniciar():
     for data in cursor.stored_results():
         cuenta = data.fetchall()
     if cuenta:
-        return cuenta
+        #Mandarlo a home con una variable del nombre del usuario
+        nombre_usuario = cuenta[0]['Nombres']
+        return render_template('home.html', nombre_usuario=nombre_usuario)
     else:
-        return jsonify({'respuesta': 'Los datos que has ingresado no son validos'}), 401
+        return jsonify({'respuesta': 'Los datos que has ingresado no son válidos'}), 401
 
 
 @app.route('/registrar', methods=['POST'])
@@ -34,7 +36,7 @@ def registrar():
         contraseña = request.form['contraseña-registrar']
         cursor.callproc('sp_Usuario_Guardar', (nombres, correo, contraseña))
         cnx.commit()
-        #Una vez registrado, nos logeamos autoamticamente
+        #Cuando se registra también se logea 
         cursor.callproc('sp_Usuario_Login', (correo, contraseña))
         for data in cursor.stored_results():
             cuenta = data.fetchall()
@@ -58,7 +60,11 @@ def recuperar():
 
 @app.route('/actualizar', methods=['POST'])
 def actualizar():
-    return
+    correo = request.form['correo']
+    nueva_contraseña = request.form['contraseña']
+    cursor.callproc('sp_Usuario_Update', (correo, nueva_contraseña))
+    cnx.commit()
+    return 'Contraseña actualizada correctamente'
 
 
 if __name__== '__main__':

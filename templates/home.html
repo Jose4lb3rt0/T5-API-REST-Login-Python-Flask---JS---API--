@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+</head>
+<body>
+    <div class="container">
+        <div class="login-box">
+
+            <div class="page-box">
+                <div class="login-title">
+                    <h2 class="Title-text">Bienvenido</h2>
+                    <p class="Subtitle-text">{{ nombre_usuario }}</p>
+                </div>
+
+
+                <div class="page welcome-page">
+                    <div class="login-title">
+                        <div class="btn-box">
+                            <a class="btn-next">¿Deseas actualizar tu contraseña?</a>
+                            <button href="/" class="btn-salir">Salir</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="page update-page">
+                    <form id="actualizar-form" action="{{url_for('actualizar')}}" method="POST">
+                        <div class="input-box">
+                            <input type="email" name="correo">
+                            <label>Ingresa tu correo</label>
+                        </div>
+                        <div class="input-box">
+                            <input type="password" name="contraseña">
+                            <label>Ingresa tu nueva contraseña</label>
+                        </div>
+                        <div class="forgot show">
+                            <label><input type="checkbox" class="checkbox-contraseña"> Mostrar contraseña</label>
+                        </div>
+                        <div class="btn-box">
+                            <button class="btn-back">Atrás</button>
+                            <button type="submit" class="btn-actualizar">Actualizar</button>
+                        </div>
+                    </form>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <script src="{{url_for('static', filename='js/home.js')}}"></script>
+</body>
+</html>

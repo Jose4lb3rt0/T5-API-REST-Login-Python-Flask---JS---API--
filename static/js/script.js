@@ -25,20 +25,8 @@ const Subtitle = document.querySelector('.Subtitle-text');
     const InputEmailRecuperarContraseña = document.querySelector('.correo-recuperar-contraseña');
     const btnBackRecuperarContraseña = document.querySelector('.btn-back-recuperar-contraseña');
     const btnRecuperarContraseña = document.querySelector('.btn-recuperar-contraseña');
-//
 
-
-/*function desactivarCamposRequeridos() {
-    document.querySelectorAll('.input-box input').forEach(input => {
-        input.removeAttribute('required');
-    });
-}
-function activarCamposRequeridos() {
-    const inputs = document.querySelector('.page.active input');
-    inputs.forEach(input => {
-        input.setAttribute('required', true);
-    });
-}*/
+    /////////////////////////////////////////////// EVENTOS ///////////////////////////////////////////////
 
     //Modulo Pagina Registro
     btnCrearCuenta.onclick = (e)=>{

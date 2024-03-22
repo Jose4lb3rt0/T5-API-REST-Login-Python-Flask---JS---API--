@@ -98,15 +98,39 @@ body {
         transform: translateX(0); 
     }
 
+    /* PÁGINA Welcome */
+    .page-box .page.welcome-page {
+        transform: translateX(0);
+        transition: .25s ease-in-out;
+        margin-bottom: 100px;
+    }
+    .page-box.active-actu .page.welcome-page {
+        transform: translateX(-500px);
+    }
+
+    /* PÁGINA DE actualizar */
+    .page-box .page.update-page {
+        position: absolute;
+        transform: translateX(500px);
+        margin-top: 100px;
+        transition: .25s ease-in-out;
+    }
+    .page-box.active-actu .page.update-page {
+        transform: translateX(0);
+    }
+    .page.update-page .input-box {
+        margin-bottom: 10px;
+    }
+
     
 .page.registration-page .input-box,
 .page.recover-password-page .input-box {
-    margin-bottom: 20px; /* Agregar un margen inferior entre las cajas de entrada */
+    margin-bottom: 20px;
 }
 
 .page.registration-page .btn-box,
 .page.recover-password-page .btn-box {
-    margin-top: 20px; /* Agregar un margen superior entre las cajas de botones y las cajas de entrada */
+    margin-top: 20px;
 }
 
 .page-box .login-title {
