@@ -10,7 +10,6 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-
 @app.route('/iniciar', methods=['POST'])
 def iniciar():
     correo = request.form['correo-ingresar']
@@ -21,23 +20,24 @@ def iniciar():
     if cuenta:
         return cuenta
     else:
-        return jsonify({'error': 'Credenciales inválidas'}), 401
+        return 'Credenciales inválidas', 401 
 
-
-@app.route('/mostrar_cuenta')
-def mostrar_cuenta():
-    return render_template('cuenta.html')
-
-
-@app.route('/recuperar')
-def recuperar():
-    return render_template('')
-
-
-@app.route('/registrar')
+@app.route('/registrar', methods=['POST'])
 def registrar():
-    return render_template('')
-
+    try:
+        nombres = request.form['nombres-registrar']
+        correo = request.form['correo-registrar']
+        contraseña = request.form['contraseña-registrar']
+        cursor.callproc('sp_Usuario_Guardar', (nombres, correo, contraseña))
+        cnx.commit()
+        #Una vez registrado, nos logeamos autoamticamente
+        cursor.callproc('sp_Usuario_Login', (correo, contraseña))
+        for data in cursor.stored_results():
+            cuenta = data.fetchall()
+        if cuenta:
+            return cuenta
+    except Exception as e:
+        return 'Algo ha fallado', 401 
 
 if __name__== '__main__':
     app.run(debug=True)

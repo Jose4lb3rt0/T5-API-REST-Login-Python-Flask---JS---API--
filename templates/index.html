@@ -55,7 +55,7 @@
                     <div class="page recover-password-page">
                         <form id="recuperar-form" action="{{url_for('recuperar')}}" method="POST">
                             <div class="input-box">
-                                <input type="type" class="correo-recuperar-contraseña">
+                                <input type="type" class="correo-recuperarcontraseña" name="correo-recuperarcontraseña">
                                 <label>Ingresa tu correo electrónico</label>
                             </div>
                             <div class="btn-box">
@@ -69,19 +69,19 @@
                     <div class="page registration-page">
                         <form id="registrar-form" action="{{url_for('registrar')}}" method="POST">
                             <div class="input-box">
-                                <input type="text" id="nombre" class="nombre-registrar" autofocus>
-                                <label>Ingresa tu nombre</label>
+                                <input type="text" class="nombres-registrar" name="nombres-registrar" autofocus>
+                                <label>Ingresa tu nombre y apellido</label>
                             </div>
                             <div class="input-box">
-                                <input type="email" id="correo" class="email-registrar">
+                                <input type="email" class="correo-registrar" name="correo-registrar">
                                 <label>Ingresa tu correo electrónico</label>
                             </div>
                             <div class="input-box">
-                                <input type="password" id="contraseña" class="contraseña-registrar">
+                                <input type="password" class="contraseña-registrar" name="contraseña-registrar">
                                 <label>Ingresa tu contraseña</label>
                             </div>
                             <div class="input-box">
-                                <input type="password" id="contraseña-repetida" class="contraseña-repetir-registrar">
+                                <input type="password" class="contraseña-repetir-registrar" name="contraseña-repetir-registrar">
                                 <label>Repite tu contraseña</label>
                             </div>
                             <div class="btn-box">
@@ -95,8 +95,6 @@
             </div>
         </div>
     </div>
-
     <script src="{{url_for('static', filename='js/script.js')}}"></script>
-
 </body>
 </html>
