@@ -7,7 +7,7 @@ const btnNext = document.querySelector('.btn-next');
 const btnSalir = document.querySelector('.btn-salir');
 
 const InputCorreo = document.querySelector('.correo');
-const InputPassword = document.querySelector('.contraseña');
+const InputPassword = document.querySelector('.contraseña-actu');
 const checkboxPass = document.querySelector('.checkbox-contraseña');
 const btnBack = document.querySelector('.btn-back');
 
@@ -19,13 +19,16 @@ btnNext.onclick = (e) => {
     setTimeout(() => InputCorreo.focus(), 500);
     Title.innerHTML = 'Actualizar Contraseña';
 };
+
 checkboxPass.onclick = () => {
+    console.log("InputPassword:", InputPassword);
     if(checkboxPass.checked) {
         InputPassword.type = 'text';
     }else{
         InputPassword.type = 'password';    
     }
 };
+
 btnBack.onclick = (e) => {
     e.preventDefault();
     pageBox.classList.remove('active-actu')

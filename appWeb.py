@@ -12,6 +12,9 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/salir', methods=['POST'])
+def salir():
+    return redirect('/')
 
 @app.route('/iniciar', methods=['POST'])
 def iniciar():
@@ -25,7 +28,7 @@ def iniciar():
         nombre_usuario = cuenta[0]['Nombres']
         return render_template('home.html', nombre_usuario=nombre_usuario)
     else:
-        return jsonify({'respuesta': 'Los datos que has ingresado no son válidos'}), 401
+        return jsonify({'respuesta': 'Los datos que has ingresado no son válidos'})
 
 
 @app.route('/registrar', methods=['POST'])
@@ -36,14 +39,14 @@ def registrar():
         contraseña = request.form['contraseña-registrar']
         cursor.callproc('sp_Usuario_Guardar', (nombres, correo, contraseña))
         cnx.commit()
-        #Cuando se registra también se logea 
+        #Cuando se registra muestra los datos
         cursor.callproc('sp_Usuario_Login', (correo, contraseña))
         for data in cursor.stored_results():
             cuenta = data.fetchall()
         if cuenta:
             return cuenta
     except Exception as e:
-        return jsonify({'respuesta': 'Algo ha fallado'}), 401
+        return jsonify({'respuesta': 'Algo ha fallado'})
 
 
 @app.route('/recuperar', methods=['POST'])

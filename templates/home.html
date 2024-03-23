@@ -18,12 +18,14 @@
 
 
                 <div class="page welcome-page">
-                    <div class="login-title">
-                        <div class="btn-box">
-                            <a class="btn-next">¿Deseas actualizar tu contraseña?</a>
-                            <button href="{{url_for('index')}}" class="btn-salir">Salir</button>
+                    <form id="seguir-o-salir" action="{{url_for('salir')}}" method="POST">
+                        <div class="login-title">
+                            <div class="btn-box">
+                                <a class="btn-next">¿Deseas actualizar tu contraseña?</a>
+                                <button type="submit" href="{{url_for('index')}}" class="btn-salir">Salir</button>
+                            </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
 
 
