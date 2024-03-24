@@ -20,7 +20,7 @@
                 <div class="page email-page">
                     <form id="iniciarsesion-form" action="{{url_for('iniciar')}}" method="POST">
                         <div class="input-box">
-                            <input type="text" class="correo-ingresar" name="correo-ingresar" autofocus>
+                            <input type="text" class="correo-ingresar" name="correo-ingresar" autofocus required>
                             <label>Ingresa tu correo electrónico</label>
                         </div>
                         <div class="forgot">
@@ -37,7 +37,7 @@
                     </div>
                     <div class="page password-page">
                         <div class="input-box">
-                            <input type="password" class="contraseña-ingresar" name="contraseña-ingresar">
+                            <input type="password" class="contraseña-ingresar" name="contraseña-ingresar" required>
                             <label>Ingresa tu contraseña</label>
                         </div>
                         <div class="forgot show">
@@ -55,7 +55,7 @@
                 <div class="page recover-password-page">
                     <form id="recuperar-form" action="{{url_for('recuperar')}}" method="POST">
                         <div class="input-box">
-                            <input type="type" class="correo-recuperarcontraseña" name="correo-recuperarcontraseña">
+                            <input type="type" class="correo-recuperarcontraseña" name="correo-recuperarcontraseña" required>
                             <label>Ingresa tu correo electrónico</label>
                         </div>
                         <div class="btn-box">
@@ -69,19 +69,19 @@
                 <div class="page registration-page">
                     <form id="registrar-form" action="{{url_for('registrar')}}" method="POST">
                         <div class="input-box">
-                            <input type="text" class="nombres-registrar" name="nombres-registrar" autofocus>
+                            <input type="text" class="nombres-registrar" name="nombres-registrar" autofocus required>
                             <label>Ingresa tu nombre y apellido</label>
                         </div>
                         <div class="input-box">
-                            <input type="email" class="correo-registrar" name="correo-registrar">
+                            <input type="email" class="correo-registrar" name="correo-registrar" required>
                             <label>Ingresa tu correo electrónico</label>
                         </div>
                         <div class="input-box">
-                            <input type="password" class="contraseña-registrar" name="contraseña-registrar">
+                            <input type="password" class="contraseña-registrar" name="contraseña-registrar" required>
                             <label>Ingresa tu contraseña</label>
                         </div>
                         <div class="input-box">
-                            <input type="password" class="contraseña-repetir-registrar" name="contraseña-repetir-registrar">
+                            <input type="password" class="contraseña-repetir-registrar" name="contraseña-repetir-registrar" required>
                             <label>Repite tu contraseña</label>
                         </div>
                         <div class="btn-box">
